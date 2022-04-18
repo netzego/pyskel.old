@@ -39,3 +39,10 @@ make distclean
 #### PACKAGES
 
 - `pytest`
+
+#### DEPENDENCIES
+
+- `python`
+- `make`
+- `fd`
+- `entr`
