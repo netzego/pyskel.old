@@ -1,3 +1,5 @@
+### PYSKEL
+
 A skeleton repository for python projects.
 
 ---
@@ -5,8 +7,9 @@ A skeleton repository for python projects.
 ### USAGE
 
 ```bash
-# 1.) Renaming
 REPO_NAME=new_name
+git clone https://github.com/netzego/pyskel.git ${REPO_NAME} && cd ${REPO_NAME}
+# 1.) Renaming
 mv src/pyskel src/${REPO_NAME}
 fd --type f -x sed -i 's/pyskel/${REPO_NAME}/g'
 # 2.) Initialize the repo. This does a couple of things.
