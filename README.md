@@ -1,8 +1,6 @@
 A skeleton repository for python projects.
 
----
-
-## USAGE
+#### USAGE
 
 ```bash
 # 1.) Choose a name for your new repository.
@@ -28,6 +26,6 @@ make pip_upgrade
 # ...
 ```
 
-## PACKAGES
+#### PACKAGES
 
 - `pytest`
