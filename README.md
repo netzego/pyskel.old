@@ -27,22 +27,27 @@ make init
 make pip_upgrade
 
 # 6.) Set an `author` and `author_email` inside `setup.py`
-sed -i 's/author=""/author=""' setup.py
-sed -i 's/author_email=""/author_email=""' setup.py
+AUTHOR="Alice A."
+EMAIL=mail@domain.tld
+sed -i "s/author=\"\"/author=\"${AUTHOR}\"" setup.py
+sed -i "s/author_email=\"\"/author_email=\"${EMAIL}\"" setup.py
 
-# 6.) Check out all the rules defined in the Makefile. (Optional)
-# ...
-
+# 7.) Cleaning rules
+make clean
 make distclean
+
+# 8.) Testing with pytest
+make pytest
+make pytest_watch
 ```
 
 #### PACKAGES
 
-- `pytest`
+-   `pytest`
 
 #### DEPENDENCIES
 
-- `python`
-- `make`
-- `fd`
-- `entr`
+-   `python`
+-   `make`
+-   `fd`
+-   `entr`
