@@ -28,7 +28,10 @@ pytest:
 pytest_watch:
 	fd -t f \.py$$ | entr -c $(PYTEST) $(PYTEST_WATCH_OPTIONS) tests/
 
-distclean:
+clean:
+	rm -fr **/__pycache__
+
+distclean: clean
 	rm -fr $(VENV)
 	rm -fr src/*.egg-info
 
@@ -37,4 +40,4 @@ install: pip_install pip_install_editable
 test: pytest
 
 .PHONY: venv pip_install pip_install_editable pip_freeze pip_upgrade pytest pytest_watch \
-	distclean init install test
+	clean distclean init install test
