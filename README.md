@@ -1,5 +1,26 @@
 A skeleton repository for python projects.
 
+#### ABSTRACT
+
+- `pyskel` aims to be a lightweight replacement for tools like `poetry`.
+- All functionality is defined in a simple Makefile.
+- Quick and easy setup
+
+- `make freeze`
+- `make init`
+- `make install` Initialize a minimal python project.
+- `make upgrade`
+- `make venv`
+- `make remove` *
+- `make add` *
+- `make add_dev` *
+
+#### RULES
+
+* `make init`
+* `make install`
+* `make`
+
 #### USAGE
 
 ```bash
