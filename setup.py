@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
+# For the time being, pip still might require a setup.py file to support editable installs.
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 
 from setuptools import setup
 
-setup(
-    name="pyskel",
-    version="0.0.0",
-    description="A skeleton repository for python projects",
-    author="",
-    author_email="",
-    url="https://github.com/netzego/pyskel",
-    packages=["pyskel"],
-    package_dir={"": "src"},
-    entry_points={"console_scripts": ["pyskel=pyskel:main"]},
-)
+setup()
