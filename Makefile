@@ -1,3 +1,4 @@
+WORKDIR			:= .
 VENV   			:= .venv
 PYTHON 		     	:= $(VENV)/bin/python3
 SYS_PYTHON		:= $(shell which python)
@@ -9,17 +10,18 @@ PIP			:= $(VENV)/bin/pip3
 venv:
 	$(SYS_PYTHON) -m venv $(VENV)
 
-pip_install:
-	$(PIP) install -r requirements.txt
+pip_first_install:
+	$(PIP) install --editable $(WORKDIR)[dev]
+	$(PIP) freeze --exclude-editable > requirements.txt
 
-pip_install_editable:
-	$(PIP) install --editable .
+pip_install:
+	$(PIP) install -r requirements.txt --editable $(WORKDIR)[dev]
 
 pip_freeze: 
 	$(PIP) freeze --exclude-editable > requirements.txt
 
 pip_upgrade:
-	$(PIP) install -r requirements.txt --upgrade
+	$(PIP) install -r requirements.txt --upgrade --editable $(WORKDIR)[dev]
 	$(PIP) freeze --exclude-editable > requirements.txt
 
 pytest:
@@ -30,14 +32,16 @@ pytest_watch:
 
 clean:
 	rm -fr **/__pycache__
+	rm -fr **/.pytest_cache
 
 distclean: clean
 	rm -fr $(VENV)
 	rm -fr src/*.egg-info
 
-init: venv install
-install: pip_install pip_install_editable
+init: venv pip_first_install
+install: pip_install
 test: pytest
+watch: pytest_watch
 
 .PHONY: venv pip_install pip_install_editable pip_freeze pip_upgrade pytest pytest_watch \
 	clean distclean init install test
