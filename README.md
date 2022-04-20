@@ -6,6 +6,9 @@ A skeleton repository for python projects.
 - All functionality is defined in a simple Makefile.
 - Quick and easy setup
 
+
+#### RULES
+
 - `make freeze`
 - `make init`
 - `make install` Initialize a minimal python project.
@@ -15,11 +18,6 @@ A skeleton repository for python projects.
 - `make add` *
 - `make add_dev` *
 
-#### RULES
-
-* `make init`
-* `make install`
-* `make`
 
 #### USAGE
 
