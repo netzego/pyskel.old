@@ -11,7 +11,7 @@ git clone https://github.com/netzego/pyskel.git ${REPO_NAME} && cd ${REPO_NAME}
 
 # 3.) Renaming
 mv src/pyskel src/${REPO_NAME}
-fd --type f -x sed -i 's/pyskel/${REPO_NAME}/g' {}
+fd --type f tests/ -x sed -i 's/pyskel/${REPO_NAME}/g' {}
 
 # 4.) Initialize the repo. This does a couple of things.
 #   - creates a virtual enviroment directory `.venv`
@@ -20,7 +20,6 @@ fd --type f -x sed -i 's/pyskel/${REPO_NAME}/g' {}
 # `make init` is an shortcut for:
 #   - make venv
 #   - make pip_install
-#   - make pip_install_editable
 make init
 
 # 5.) Upgrade to the newest package versions. (Optional)
@@ -45,9 +44,21 @@ make pytest_watch
 
 -   `pytest`
 
+
 #### DEPENDENCIES
 
--   `python`
--   `make`
--   `fd`
--   `entr`
+- `python`
+- `make`
+- `fd`
+- `entr`
+
+
+#### RESOURCES
+
+- https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+- https://packaging.python.org/en/latest/
+- https://setuptools.pypa.io/en/latest/
+- https://setuptools.pypa.io/en/latest/userguide/quickstart.html
+- https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+- https://pypi.org/classifiers/
+- https://github.com/wimglenn/setuptools-ext
