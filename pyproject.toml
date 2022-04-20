@@ -1,2 +1,40 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+[project]
+name = "pyskel"
+dynamic = ["version"]
+license = { file = "COPYLEFT" }
+description = "A skeleton repository for python projects"
+readme = "README.md"
+# See https://pypi.org/classifiers/
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: POSIX",
+]
+authors = [
+  { name = "netzego" },
+  { email = "mail@pyskel.tld" },
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+homepage = "https://github.com/netzego/pyskel"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "pyskel.__version__" }
+
+[project.scripts]
+pyskel = "pyskel:main"
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
